@@ -83,9 +83,8 @@ class MainViewModel : ViewModel(), Player.Listener {
         interactor = null
         if (exoPlayer != null) {
             exoPlayer!!.stop()
-            exoPlayer = null
-
             exoPlayer!!.removeListener(this)
+            exoPlayer = null
         }
     }
 
