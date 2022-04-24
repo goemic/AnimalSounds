@@ -31,6 +31,8 @@ class MainViewModel : ViewModel(), Player.Listener {
     data class AnimalItem(
         @RawRes val audioRes: Int,
         @DrawableRes val imageDrawable: Int,
+        val audioLicenseUrl: String,
+        val imageLicenseUrl: String? = null,
         val id: String = "$audioRes - $imageDrawable"
     ) : Parcelable
 
@@ -51,8 +53,8 @@ class MainViewModel : ViewModel(), Player.Listener {
                 .bindExtra(BR.viewModel, this)
         }
 
-    var exoPlayer: ExoPlayer? = null
-    var interactor: Interactor? = null
+    private var exoPlayer: ExoPlayer? = null
+    private var interactor: Interactor? = null
 
 
     //
@@ -112,23 +114,91 @@ class MainViewModel : ViewModel(), Player.Listener {
     //
 
     private fun setupItemList() {
-        // todo: add license relevant information
         itemList.addAll(
             listOf(
-                AnimalItem(R.raw.cow, R.drawable.cow),
-                AnimalItem(R.raw.dog, R.drawable.dog),
-                AnimalItem(R.raw.cat, R.drawable.cat),
-                AnimalItem(R.raw.donkey, R.drawable.donkey),
-                AnimalItem(R.raw.chick, R.drawable.chick),
-                AnimalItem(R.raw.barn, R.drawable.chicken),
-                AnimalItem(R.raw.pig, R.drawable.piglet),
-                AnimalItem(R.raw.duck, R.drawable.drake),
-                AnimalItem(R.raw.horse, R.drawable.horse),
-                AnimalItem(R.raw.sheep, R.drawable.lamb),
-                AnimalItem(R.raw.owl, R.drawable.owl),
-                AnimalItem(R.raw.bee, R.drawable.bee),
-                AnimalItem(R.raw.elephant, R.drawable.elephant),
-                AnimalItem(R.raw.goat, R.drawable.goat),
+                AnimalItem(
+                    R.raw.cow,
+                    R.drawable.cow,
+                    "https://freesound.org/people/Benboncan/sounds/58277",
+                    "https://pixabay.com/images/id-1715829/"
+                ),
+                AnimalItem(
+                    R.raw.dog,
+                    R.drawable.dog,
+                    "https://freesound.org/people/apolloaiello/sounds/347763",
+                    "https://pixabay.com/images/id-6945696/"
+                ),
+                AnimalItem(
+                    R.raw.cat,
+                    R.drawable.cat,
+                    "https://freeanimalsounds.org",
+                    "https://pixabay.com/images/id-6946505/"
+                ),
+                AnimalItem(
+                    R.raw.donkey,
+                    R.drawable.donkey,
+                    "https://freesound.org/people/LeandiViljoen/sounds/502081",
+                    "https://pixabay.com/images/id-3931367/"
+                ),
+                AnimalItem(
+                    R.raw.chick,
+                    R.drawable.chick,
+                    "https://freesound.org/people/deleted_user_2104797/sounds/164489",
+                    "https://pixabay.com/images/id-5014150/"
+                ),
+                AnimalItem(
+                    R.raw.barn,
+                    R.drawable.chicken,
+                    "https://freesound.org/people/snapssound/sounds/623923"
+                ),
+                AnimalItem(
+                    R.raw.pig,
+                    R.drawable.piglet,
+                    "https://freesound.org/people/confusion_music/sounds/103421",
+                    "https://pixabay.com/images/id-84702/"
+                ),
+                AnimalItem(
+                    R.raw.duck,
+                    R.drawable.drake,
+                    "https://freeanimalsounds.org",
+                    "https://pixabay.com/images/id-2028573/"
+                ),
+                AnimalItem(
+                    R.raw.horse,
+                    R.drawable.horse,
+                    "https://freesound.org/people/GoodListener/sounds/322445",
+                    "https://pixabay.com/images/id-3419146/"
+                ),
+                AnimalItem(
+                    R.raw.sheep,
+                    R.drawable.lamb,
+                    "https://freeanimalsounds.org",
+                    "https://pixabay.com/images/id-4207116/"
+                ),
+                AnimalItem(
+                    R.raw.owl,
+                    R.drawable.owl,
+                    "https://freesound.org/people/Anthousai/sounds/398734",
+                    "https://pixabay.com/images/id-2307405/"
+                ),
+                AnimalItem(
+                    R.raw.bee,
+                    R.drawable.bee,
+                    "https://freesound.org/people/zedkah/sounds/134813",
+                    "https://pixabay.com/images/id-5618012/"
+                ),
+                AnimalItem(
+                    R.raw.elephant,
+                    R.drawable.elephant,
+                    "https://freeanimalsounds.org",
+                    "https://pixabay.com/images/id-2178578/"
+                ),
+                AnimalItem(
+                    R.raw.goat,
+                    R.drawable.goat,
+                    "https://freeanimalsounds.org",
+                    "https://pixabay.com/images/id-4256223/"
+                ),
             )
         )
     }
