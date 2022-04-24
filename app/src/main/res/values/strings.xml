@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AnimalSound</string>
+
+    <string name="toast_back_press_info">Schließen Sie die App über die App-Übersicht.</string>
 </resources>

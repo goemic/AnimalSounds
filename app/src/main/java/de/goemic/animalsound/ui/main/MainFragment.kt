@@ -19,6 +19,8 @@ import de.goemic.animalsound.ui.detail.DetailFragment
 class MainFragment : Fragment(), MainViewModel.Interactor {
 
     companion object {
+        val TAG = MainFragment::javaClass.name
+
         fun newInstance() = MainFragment()
     }
 
@@ -88,22 +90,20 @@ class MainFragment : Fragment(), MainViewModel.Interactor {
     //
 
     override fun showDetails(view: View, item: MainViewModel.AnimalItem) {
-        val tag = DetailFragment::javaClass.name
 
         parentFragmentManager
             .beginTransaction()
             .setReorderingAllowed(true)
             .addSharedElement(view as ImageView, item.id)
-            .addToBackStack(tag)
-            .replace(R.id.container, DetailFragment.newInstance(item), tag)
+            .addToBackStack(DetailFragment.TAG)
+            .replace(R.id.container, DetailFragment.newInstance(item), DetailFragment.TAG)
             .commit()
     }
 
     override fun hideDetails() {
-        val tag = DetailFragment::javaClass.name
 
-        if (parentFragmentManager.findFragmentByTag(tag) is DetailFragment) {
-            requireActivity().onBackPressed()
+        if (parentFragmentManager.findFragmentByTag(DetailFragment.TAG) is DetailFragment) {
+            parentFragmentManager.popBackStackImmediate()
         }
 
     }

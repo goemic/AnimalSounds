@@ -17,6 +17,8 @@ import kotlinx.android.synthetic.main.detail_fragment.*
 class DetailFragment(val item: MainViewModel.AnimalItem) : Fragment() {
 
     companion object {
+        val TAG = DetailFragment::javaClass.name
+
         fun newInstance(item: MainViewModel.AnimalItem): DetailFragment {
             return DetailFragment(item)
         }
